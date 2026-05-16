@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тема 5: Графично изображение | Ctrl+LearnBG</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<canvas id="particles-canvas"></canvas>
+<div class="page-wrapper">
+  <div class="breadcrumb"><a href="../index.html">🏠 Начало</a><span class="sep">›</span><span>Тема 5: Графично изображение</span></div>
+  <div class="topic-hero">
+    <span class="topic-hero-icon">🎨</span>
+    <span class="topic-hero-num">// ТЕМА 05</span>
+    <h1 class="topic-hero-title">Графично <span class="gradient-text">изображение</span></h1>
+    <p class="topic-hero-desc">Растерна и векторна графика. Файлови формати. Графичен редактор Paint. Цветови модели RGB и CMYK.</p>
+    <a href="#tabs-section" class="btn btn-primary">Започни да учиш ↓</a>
+  </div>
+  <div class="tabs-container" id="tabs-section">
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="theory">📖 Теория</button>
+      <button class="tab-btn" data-tab="video">🎬 Видео</button>
+      <button class="tab-btn" data-tab="tasks">✏️ Задачи</button>
+      <button class="tab-btn" data-tab="test">🧪 Тест</button>
+    </div>
+    <div class="tab-panel active" id="tab-theory">
+      <div class="theory-content">
+        <div class="theory-block reveal">
+          <h2>🖼️ Видове компютърна графика</h2>
+          <table class="data-table">
+            <tr><th>Характеристика</th><th>Растерна графика</th><th>Векторна графика</th></tr>
+            <tr><td>Изграждане</td><td>Мрежа от пиксели</td><td>Математически обекти (линии, криви)</td></tr>
+            <tr><td>Преоразмеряване</td><td>Губи качество (пикселизация)</td><td>Без загуба на качество</td></tr>
+            <tr><td>Подходяща за</td><td>Снимки, фотографии</td><td>Лога, илюстрации, икони</td></tr>
+            <tr><td>Програми</td><td>GIMP, Paint, Photoshop</td><td>Illustrator, CorelDraw, Inkscape</td></tr>
+            <tr><td>Формати</td><td>.jpg, .png, .bmp, .gif</td><td>.svg, .eps, .cdr</td></tr>
+          </table>
+        </div>
+        <div class="theory-block reveal">
+          <h2>📄 Растерни файлови формати</h2>
+          <table class="data-table">
+            <tr><th>Формат</th><th>Цветове</th><th>Прозрачност</th><th>Анимация</th><th>Размер</th></tr>
+            <tr><td><strong>PNG</strong></td><td>16.7 млн.</td><td>✅</td><td>❌</td><td>Среден</td></tr>
+            <tr><td><strong>JPG/JPEG</strong></td><td>16.7 млн.</td><td>❌</td><td>❌</td><td>Малък</td></tr>
+            <tr><td><strong>GIF</strong></td><td>256</td><td>✅</td><td>✅</td><td>Малък</td></tr>
+            <tr><td><strong>BMP</strong></td><td>16.7 млн.</td><td>❌</td><td>❌</td><td>Голям</td></tr>
+            <tr><td><strong>TIFF</strong></td><td>>32 бита/пиксел</td><td>✅</td><td>❌</td><td>Голям</td></tr>
+          </table>
+          <div class="highlight-box">💡 <strong>PNG</strong> е най-добър за уеб изображения с прозрачност. <strong>JPG</strong> е за снимки. <strong>GIF</strong> поддържа анимации но само 256 цвята.</div>
+        </div>
+        <div class="theory-block reveal">
+          <h2>🎨 Цветови модели</h2>
+          <div class="info-grid">
+            <div class="info-item"><div class="info-icon">🖥️</div><div class="info-name">RGB</div><div class="info-desc">Red, Green, Blue — за екрани. Всеки 0-255.</div></div>
+            <div class="info-item"><div class="info-icon">🖨️</div><div class="info-name">CMYK</div><div class="info-desc">Cyan, Magenta, Yellow, blacK — за печат</div></div>
+            <div class="info-item"><div class="info-icon">🌈</div><div class="info-name">HSL/HSB</div><div class="info-desc">Hue (тон), Saturation (наситеност), Lightness</div></div>
+          </div>
+          <h3>Инструменти за промяна на изображение</h3>
+          <ul>
+            <li><strong>Контраст</strong> — разграничава цветовете, прави ги по-наситени</li>
+            <li><strong>Яркост (Brightness)</strong> — засилва/намалява светлостта</li>
+            <li><strong>Наситеност (Saturation)</strong> — от безцветно до пълен цвят</li>
+            <li><strong>Ориентация (Rotate/Flip)</strong> — завъртане или огледало</li>
+            <li><strong>Разделителна способност (dpi)</strong> — точки на инч; минимум 300 dpi за печат</li>
+          </ul>
+        </div>
+        <div class="theory-block reveal">
+          <h2>🖌️ Графичен редактор Paint</h2>
+          <p>Paint е вграден в Windows растерен графичен редактор. Основни инструменти:</p>
+          <ul>
+            <li><strong>Pencil (Молив)</strong> — рисуване на свободна ръка</li>
+            <li><strong>Brushes (Четки)</strong> — различни форми и размери</li>
+            <li><strong>Shapes (Фигури)</strong> — правоъгълник, овал, триъгълник...</li>
+            <li><strong>Fill with color (Запълване)</strong> — запълва затворени области</li>
+            <li><strong>Eraser (Гума)</strong> — "рисува" с фоновия цвят</li>
+            <li><strong>Color Picker (Пипета)</strong> — извлича цвят от изображението</li>
+            <li><strong>Text (Текст)</strong> — добавя текст към изображението</li>
+            <li><strong>Select (Избор)</strong> — маркира правоъгълна или произволна област</li>
+          </ul>
+          <div class="highlight-box">💡 Цветови системи в Paint: <strong>Color 1</strong> = основен цвят (ляв бутон), <strong>Color 2</strong> = фонов цвят (десен бутон)</div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-video">
+      <div class="video-grid">
+        <div class="video-card"><div class="video-thumb"><div class="video-placeholder"><div class="play-icon">▶</div><div>Растерна vs Векторна графика</div></div></div><div class="video-info"><div class="video-title">Растерна vs Векторна графика — разлики</div><div class="video-channel">📺 Видео урок</div></div></div>
+        <div class="video-card"><div class="video-thumb"><div class="video-placeholder"><div class="play-icon">▶</div><div>Работа с Paint в Windows</div></div></div><div class="video-info"><div class="video-title">Урок по Paint — основни инструменти</div><div class="video-channel">📺 Видео урок</div></div></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-tasks">
+      <div class="tasks-grid">
+        <div class="task-card reveal">
+          <div class="task-header"><div class="task-title">Задача 1: Кой формат?</div><span class="difficulty-badge easy">Лесна</span></div>
+          <div class="task-desc">Кой графичен формат е най-подходящ за: А) Снимка за уеб с прозрачен фон Б) Снимка от ваканция (малък размер) В) Кратка анимация с ограничени цветове?</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer">А) <strong>PNG</strong> (поддържа прозрачност)<br>Б) <strong>JPG</strong> (малък размер, много цветове)<br>В) <strong>GIF</strong> (поддържа анимация)</div>
+        </div>
+        <div class="task-card reveal">
+          <div class="task-header"><div class="task-title">Задача 2: RGB модел</div><span class="difficulty-badge medium">Средна</span></div>
+          <div class="task-desc">В RGB модела: какъв цвят дава R=255, G=0, B=0? Какъв цвят дава R=0, G=0, B=0? Какъв цвят дава R=255, G=255, B=255?</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer">R=255, G=0, B=0 → <strong>Червен</strong><br>R=0, G=0, B=0 → <strong>Черен</strong><br>R=255, G=255, B=255 → <strong>Бял</strong></div>
+        </div>
+        <div class="task-card reveal">
+          <div class="task-header"><div class="task-title">Задача 3: Растерна vs Векторна</div><span class="difficulty-badge medium">Средна</span></div>
+          <div class="task-desc">Дизайнер прави лого за фирма. Кой вид графика препоръчваш — растерна или векторна? Защо?</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer"><strong>Векторна графика</strong>! Защото логото трябва да се преоразмерява (визитка, билборд, уебсайт) без загуба на качество. Векторните обекти се мащабират свободно, докато растерните при уголемяване се "пикселизират".</div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-test">
+      <div class="quiz-container">
+        <h2 style="font-family:var(--font-display); margin-bottom:1.5rem; font-size:1.3rem;">🧪 Тест: Графично изображение</h2>
+        <div id="quiz-topic5"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center; padding:2rem; border-top:1px solid var(--border); display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a href="topic-4.html" class="btn btn-outline">← Тема 4</a>
+    <a href="topic-6.html" class="btn btn-primary">Тема 6: Алгоритми →</a>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+const q5 = [
+  { type:'mc', question:'Кой вид графика губи качество при преоразмеряване?', options:['Векторна','Растерна','И двете','Нито една'], correct:'Растерна' },
+  { type:'mc', question:'Кой формат поддържа анимации?', options:['JPG','PNG','GIF','BMP'], correct:'GIF' },
+  { type:'mc', question:'Растерната графика е изградена от:', options:['Математически формули','Мрежа от пиксели','Векторни обекти','Слоеве'], correct:'Мрежа от пиксели' },
+  { type:'mc', question:'RGB се използва за:', options:['Печат','Екрани','И двете','Нито едно'], correct:'Екрани' },
+  { type:'tf', question:'PNG форматът поддържа прозрачност.', correct:'Вярно' },
+  { type:'mc', question:'Кой формат е с НАЙ-ГОЛЯМ размер на файла?', options:['JPG','GIF','BMP','PNG'], correct:'BMP' },
+  { type:'mc', question:'CMYK се използва при:', options:['Уеб дизайн','Видео редакция','Подготовка за печат','Растерна графика'], correct:'Подготовка за печат' },
+  { type:'tf', question:'GIF поддържа само 256 цвята.', correct:'Вярно' },
+  { type:'mc', question:'Кой инструмент в Paint извлича цвят от изображението?', options:['Pencil','Eraser','Color Picker (Пипета)','Fill'], correct:'Color Picker (Пипета)' },
+  { type:'mc', question:'Минималната разделителна способност за печат е:', options:['72 dpi','150 dpi','300 dpi','600 dpi'], correct:'300 dpi' },
+];
+document.addEventListener('DOMContentLoaded', () => {
+  const qs = [...q5].sort(() => Math.random() - 0.5).slice(0, 10);
+  initQuiz(qs, 'quiz-topic5');
+  const st = window['quizState_quiz-topic5'];
+  if (st) { const r = st.render; st.render = function() { if(st.current()>=qs.length) renderQuizResult(document.getElementById('quiz-topic5'),st.score(),qs.length); else r(); }; }
+});
+</script>
+</body>
+</html>

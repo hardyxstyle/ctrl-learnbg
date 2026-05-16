@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мега Тест — НОИТ 5-7 клас | Ctrl+LearnBG</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .mega-hero {
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 2rem 60px;
+    }
+
+    .mega-start-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .topic-progress-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(59,130,246,0.08);
+      font-size: 0.85rem;
+    }
+    .topic-progress-row:last-child { border-bottom: none; }
+    .topic-name { flex: 1; color: var(--text-secondary); }
+    .topic-score { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); }
+    .mini-bar { width: 80px; height: 4px; background: var(--bg-secondary); border-radius: 2px; overflow: hidden; }
+    .mini-bar-fill { height: 100%; background: var(--gradient-main); border-radius: 2px; transition: width 0.5s ease; }
+
+    .mega-score-ring {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent-blue) var(--pct, 0%), var(--bg-card) 0%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      position: relative;
+    }
+    .mega-score-ring::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      background: var(--bg-primary);
+      border-radius: 50%;
+    }
+    .mega-score-ring .ring-text {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .topic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.25);
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+<canvas id="particles-canvas"></canvas>
+<div class="page-wrapper">
+
+  <div class="breadcrumb">
+    <a href="../index.html">🏠 Начало</a>
+    <span class="sep">›</span>
+    <span>🏆 Мега Тест</span>
+  </div>
+
+  <!-- START SCREEN -->
+  <div id="screen-start">
+    <section class="mega-hero">
+      <div>
+        <div style="font-size:4rem; margin-bottom:1rem;">🏆</div>
+        <div class="topic-badge">// ФИНАЛЕН ИЗПИТ · НОИТ 5-7 КЛАС</div>
+        <h1 class="topic-hero-title" style="font-size:clamp(2rem,6vw,3.5rem);">
+          Мега Тест — <span class="gradient-text">всички теми</span>
+        </h1>
+        <p style="color:var(--text-secondary); max-width:550px; margin:0 auto 2.5rem; font-size:0.95rem; line-height:1.7;">
+          50 въпроса от всички 10 теми. Тествай готовността си за НОИТ! Въпросите са разбъркани и различни при всяко зареждане.
+        </p>
+
+        <div class="mega-start-card" style="margin-bottom:2rem; text-align:left;">
+          <h3 style="font-family:var(--font-display); font-size:1rem; color:var(--accent-blue); margin-bottom:1.25rem;">📋 Информация за теста</h3>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+            <div style="background:rgba(59,130,246,0.06); border:1px solid var(--border); border-radius:10px; padding:1rem; text-align:center;">
+              <div style="font-family:var(--font-display); font-size:1.8rem; color:var(--accent-blue);">50</div>
+              <div style="font-size:0.78rem; color:var(--text-muted);">Въпроса</div>
+            </div>
+            <div style="background:rgba(139,92,246,0.06); border:1px solid rgba(139,92,246,0.2); border-radius:10px; padding:1rem; text-align:center;">
+              <div style="font-family:var(--font-display); font-size:1.8rem; color:var(--accent-purple);">10</div>
+              <div style="font-size:0.78rem; color:var(--text-muted);">Теми</div>
+            </div>
+          </div>
+          <ul style="color:var(--text-secondary); font-size:0.85rem; line-height:1.8; padding-left:1.2rem;">
+            <li>Множествен избор, Вярно/Грешно и текстови въпроси</li>
+            <li>Незабавна обратна връзка след всеки въпрос</li>
+            <li>Подробен резултат по теми в края</li>
+            <li>Въпросите са разбъркани при всяко зареждане</li>
+          </ul>
+        </div>
+
+        <button class="btn btn-primary" onclick="startMegaTest()" style="font-size:1rem; padding:0.9rem 2.5rem;">
+          🚀 Стартирай Мега Теста
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="screen-quiz" class="hidden" style="padding:100px 2rem 4rem;">
+    <div style="max-width:800px; margin:0 auto;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <div class="topic-badge" id="current-topic-label">// ТЕМА</div>
+        <span class="quiz-score-badge" id="mega-score-live">⭐ 0 точки</span>
+      </div>
+      <div class="quiz-progress-bar" style="margin-bottom:0.5rem;">
+        <div class="quiz-progress-fill" id="mega-progress-fill" style="width:0%"></div>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.72rem; color:var(--text-muted); margin-bottom:2rem;">
+        <span id="mega-counter">Въпрос 1 от 50</span>
+        <span id="mega-pct">0%</span>
+      </div>
+      <div id="mega-quiz-area"></div>
+    </div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div id="screen-result" class="hidden" style="padding:100px 2rem 4rem;">
+    <div style="max-width:800px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <div id="result-emoji" style="font-size:4rem; margin-bottom:1rem;"></div>
+        <h2 id="result-title" style="font-family:var(--font-display); font-size:2rem; margin-bottom:0.5rem;"></h2>
+        <div class="mega-score-ring" id="result-ring" style="--pct:0deg; margin-top:1.5rem;">
+          <div class="ring-text" id="result-score-text">0/50</div>
+        </div>
+        <p id="result-msg" style="color:var(--text-secondary); margin-bottom:0.5rem;"></p>
+        <p id="result-pct" style="font-family:var(--font-mono); font-size:0.9rem; color:var(--accent-cyan);"></p>
+      </div>
+
+      <!-- Per-topic breakdown -->
+      <div class="theory-block" style="margin-bottom:1.5rem;">
+        <h2 style="font-size:1rem;">📊 Резултати по теми</h2>
+        <div id="topic-breakdown"></div>
+      </div>
+
+      <div style="text-align:center; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="location.reload()">🔄 Опитай отново</button>
+        <a href="../index.html" class="btn btn-outline">🏠 Начало</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="../js/main.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+/* ============================================
+   MEGA TEST ENGINE
+   ============================================ */
+
+const MEGA_QUESTIONS = [
+  // ТЕМА 1 — Компютърна система
+  { topic:1, topicName:'💻 Компютърна система', type:'mc', question:'Компютърната система се състои от:', options:['Само хардуер','Само софтуер','Хардуер, софтуер и данни','Монитор, клавиатура и мишка'], correct:'Хардуер, софтуер и данни' },
+  { topic:1, topicName:'💻 Компютърна система', type:'mc', question:'Кое устройство е ВХОДНО?', options:['Монитор','Принтер','Тонколони','Скенер'], correct:'Скенер' },
+  { topic:1, topicName:'💻 Компютърна система', type:'tf', question:'RAM памет запазва данните при изключване на компютъра.', correct:'Грешно' },
+  { topic:1, topicName:'💻 Компютърна система', type:'mc', question:'CPU означава:', options:['Central Power Unit','Central Processing Unit','Computer Personal Unit','Core Processing Utility'], correct:'Central Processing Unit' },
+  { topic:1, topicName:'💻 Компютърна система', type:'mc', question:'SSD се различава от HDD по това, че:', options:['Съхранява по-малко данни','Използва флаш памет вместо магнитни плочи','Работи по-бавно','Е по-евтин'], correct:'Използва флаш памет вместо магнитни плочи' },
+  { topic:1, topicName:'💻 Компютърна система', type:'mc', question:'Тактовата честота на процесора се измерва в:', options:['Байтове','MB','Hz (херцове)','Ватове'], correct:'Hz (херцове)' },
+  // ТЕМА 2 — Операционна система
+  { topic:2, topicName:'🖥️ Операционна система', type:'mc', question:'Операционната система е:', options:['Приложен软件','Хардуер','Системен软件','Мрежова карта'], correct:'Системен软件' },
+  { topic:2, topicName:'🖥️ Операционна система', type:'mc', question:'Ctrl+C в Windows изпълнява:', options:['Поставяне','Изрязване','Копиране','Изтриване'], correct:'Копиране' },
+  { topic:2, topicName:'🖥️ Операционна система', type:'tf', question:'Контекстното меню се отваря с десен бутон на мишката.', correct:'Вярно' },
+  { topic:2, topicName:'🖥️ Операционна система', type:'mc', question:'Разширението на файл .docx означава:', options:['Excel таблица','Word документ','PowerPoint','Снимка'], correct:'Word документ' },
+  { topic:2, topicName:'🖥️ Операционна система', type:'mc', question:'Desktop (Работен плот) е:', options:['Програма за писане','Началният екран на Windows','Файлов мениджър','Браузър'], correct:'Началният екран на Windows' },
+  { topic:2, topicName:'🖥️ Операционна система', type:'mc', question:'Клавишната комбинация за нова папка е:', options:['Ctrl+N','Ctrl+F','Ctrl+Shift+N','F2'], correct:'Ctrl+Shift+N' },
+  // ТЕМА 3 — Информация и данни
+  { topic:3, topicName:'📊 Информация и данни', type:'mc', question:'1 байт е равен на:', options:['4 бита','6 бита','8 бита','16 бита'], correct:'8 бита' },
+  { topic:3, topicName:'📊 Информация и данни', type:'mc', question:'1 GB = ?', options:['1000 KB','1000 B','1000 MB','1000 TB'], correct:'1000 MB' },
+  { topic:3, topicName:'📊 Информация и данни', type:'tf', question:'Компютърният червей сам се копира от система в система.', correct:'Вярно' },
+  { topic:3, topicName:'📊 Информация и данни', type:'mc', question:'Рансъмуерът:', options:['Подобрява производителността','Криптира файлове и иска откуп','Е антивирусна програма','Ускорява интернет'], correct:'Криптира файлове и иска откуп' },
+  { topic:3, topicName:'📊 Информация и данни', type:'mc', question:'Кой метод на запис използва USB Flash паметта?', options:['Магнитен','Оптичен','Механичен','Електронен'], correct:'Електронен' },
+  { topic:3, topicName:'📊 Информация и данни', type:'mc', question:'Windows Defender е:', options:['Вирус','Антивирусна програма','Браузър','Файлов мениджър'], correct:'Антивирусна програма' },
+  // ТЕМА 4 — Онлайн ресурси
+  { topic:4, topicName:'🌐 Онлайн ресурси', type:'mc', question:'CC BY-NC означава:', options:['Свободно ползване','Само за некомерсиална употреба','Без промени','Само за комерсиална употреба'], correct:'Само за некомерсиална употреба' },
+  { topic:4, topicName:'🌐 Онлайн ресурси', type:'tf', question:'CC0 означава, че авторът се отказва от всички права.', correct:'Вярно' },
+  { topic:4, topicName:'🌐 Онлайн ресурси', type:'mc', question:'LibreOffice е:', options:['Proprietary软件','Open Source软件','Freeware','Вирус'], correct:'Open Source软件' },
+  { topic:4, topicName:'🌐 Онлайн ресурси', type:'mc', question:'Фишингът е метод за:', options:['Бързо сваляне на файлове','Кражба на лични данни чрез измама','Защита на пароли','Оптимизация на мрежа'], correct:'Кражба на лични данни чрез измама' },
+  { topic:4, topicName:'🌐 Онлайн ресурси', type:'mc', question:'Нетикетът е:', options:['Вид вирус','Мрежов протокол','Правила за поведение в онлайн среда','Файлов формат'], correct:'Правила за поведение в онлайн среда' },
+  { topic:4, topicName:'🌐 Онлайн ресурси', type:'mc', question:'CC BY изисква задължително:', options:['Некомерсиална употреба','Посочване на автора','Без промени','Споделяне под същия лиценз'], correct:'Посочване на автора' },
+  // ТЕМА 5 — Графика
+  { topic:5, topicName:'🎨 Графично изображение', type:'mc', question:'При преоразмеряване кой вид графика губи качество?', options:['Векторна','Растерна','И двете','Нито една'], correct:'Растерна' },
+  { topic:5, topicName:'🎨 Графично изображение', type:'mc', question:'PNG форматът поддържа:', options:['Само 256 цвята','Анимации','Прозрачност','Само черно-бяло'], correct:'Прозрачност' },
+  { topic:5, topicName:'🎨 Графично изображение', type:'tf', question:'GIF форматът поддържа анимации.', correct:'Вярно' },
+  { topic:5, topicName:'🎨 Графично изображение', type:'mc', question:'RGB цветовият модел е за:', options:['Печат','Екрани и монитори','Архивиране','Компресия'], correct:'Екрани и монитори' },
+  { topic:5, topicName:'🎨 Графично изображение', type:'mc', question:'Разделителната способност dpi означава:', options:['Дялове на инч','Точки на инч','Дълбочина на изображение','Диагонал в инчове'], correct:'Точки на инч' },
+  { topic:5, topicName:'🎨 Графично изображение', type:'mc', question:'Inkscape и CorelDraw са редактори за:', options:['Растерна графика','Векторна графика','Видео','Звук'], correct:'Векторна графика' },
+  // ТЕМА 6 — Алгоритми
+  { topic:6, topicName:'⚙️ Алгоритми', type:'mc', question:'range(5) генерира числата:', options:['1,2,3,4,5','0,1,2,3,4','0,1,2,3,4,5','1,2,3,4'], correct:'0,1,2,3,4' },
+  { topic:6, topicName:'⚙️ Алгоритми', type:'mc', question:'Кой тип данни е стойността 3.14?', options:['int','str','float','bool'], correct:'float' },
+  { topic:6, topicName:'⚙️ Алгоритми', type:'tf', question:'While цикълът се изпълнява докато условието е вярно (True).', correct:'Вярно' },
+  { topic:6, topicName:'⚙️ Алгоритми', type:'mc', question:'Командата за включване на модул в Python е:', options:['include','use','import','require'], correct:'import' },
+  { topic:6, topicName:'⚙️ Алгоритми', type:'mc', question:'Кой тип данни е [1, 2, 3]?', options:['int','str','bool','list'], correct:'list' },
+  { topic:6, topicName:'⚙️ Алгоритми', type:'mc', question:'For цикълът е подходящ, когато:', options:['Броят на повторенията е неизвестен','Броят на повторенията е известен','Условието е False','Няма повторения'], correct:'Броят на повторенията е известен' },
+  // ТЕМА 7 — MS Word
+  { topic:7, topicName:'📝 MS Word', type:'mc', question:'В MS Word "Bold" означава:', options:['Курсив','Подчертан','Удебелен','Зачертан'], correct:'Удебелен' },
+  { topic:7, topicName:'📝 MS Word', type:'mc', question:'Клавишната комбинация за запис в Word е:', options:['Ctrl+P','Ctrl+S','Ctrl+Z','Ctrl+N'], correct:'Ctrl+S' },
+  { topic:7, topicName:'📝 MS Word', type:'tf', question:'Landscape означава хоризонтална ориентация на страницата.', correct:'Вярно' },
+  { topic:7, topicName:'📝 MS Word', type:'mc', question:'Специални знаци в Word се вмъкват от:', options:['Home → Font','Insert → Symbol','View → Special','Format → Character'], correct:'Insert → Symbol' },
+  { topic:7, topicName:'📝 MS Word', type:'mc', question:'Justify подравняването означава:', options:['Ляво','Дясно','Централно','Двустранно разтегнато'], correct:'Двустранно разтегнато' },
+  { topic:7, topicName:'📝 MS Word', type:'mc', question:'A4 листът е с размери:', options:['21×29.7 cm','29.7×42 cm','21×27.9 cm','15×21 cm'], correct:'21×29.7 cm' },
+  // ТЕМА 8 — MS Excel
+  { topic:8, topicName:'📈 MS Excel', type:'mc', question:'Клетката в 2-ри ред и колона B се казва:', options:['2B','B2','ROW2B','B:2'], correct:'B2' },
+  { topic:8, topicName:'📈 MS Excel', type:'mc', question:'Функцията за средноаритметично е:', options:['=SUM()','=AVG()','=AVERAGE()','=MEAN()'], correct:'=AVERAGE()' },
+  { topic:8, topicName:'📈 MS Excel', type:'tf', question:'Всяка формула в Excel задължително започва с =.', correct:'Вярно' },
+  { topic:8, topicName:'📈 MS Excel', type:'mc', question:'=MAX(A1:A5) връща:', options:['Сумата','Средната стойност','Максималната стойност','Минималната стойност'], correct:'Максималната стойност' },
+  { topic:8, topicName:'📈 MS Excel', type:'mc', question:'=IF(A1>10,"Да","Не") — ако A1=7, резултатът е:', options:['Да','Не','7','Грешка'], correct:'Не' },
+  // ТЕМА 9 — PowerPoint
+  { topic:9, topicName:'🎞️ MS PowerPoint', type:'mc', question:'Transition ефектите в PowerPoint са:', options:['Анимации на обекти','Ефекти при смяна на слайдове','Цветови теми','Шрифтове'], correct:'Ефекти при смяна на слайдове' },
+  { topic:9, topicName:'🎞️ MS PowerPoint', type:'mc', question:'Кой формат отваря директно като SlideShow?', options:['.pptx','.ppt','.pps','.docx'], correct:'.pps' },
+  { topic:9, topicName:'🎞️ MS PowerPoint', type:'mc', question:'Препоръчителният минимален размер на шрифта в презентация е:', options:['10pt','16pt','24pt','36pt'], correct:'24pt' },
+  // ТЕМА 10 — Интернет
+  { topic:10, topicName:'🔗 Интернет', type:'mc', question:'Кой достъп до интернет е НАЙ-БЪРз?', options:['DSL','WiFi','Оптичен (Fiber)','3G'], correct:'Оптичен (Fiber)' },
+  { topic:10, topicName:'🔗 Интернет', type:'tf', question:'HTTPS означава защитена (криптирана) връзка.', correct:'Вярно' },
+  { topic:10, topicName:'🔗 Интернет', type:'mc', question:'BCC в имейл означава:', options:['Копие до видим получател','Скрито копие','Тема на писмото','Прикачен файл'], correct:'Скрито копие' },
+];
+
+let megaQ = [];
+let megaCurrent = 0;
+let megaScore = 0;
+let megaAnswered = false;
+let topicScores = {};
+
+function startMegaTest() {
+  // Shuffle all questions
+  megaQ = [...MEGA_QUESTIONS].sort(() => Math.random() - 0.5);
+  megaCurrent = 0;
+  megaScore = 0;
+  topicScores = {};
+
+  document.getElementById('screen-start').classList.add('hidden');
+  document.getElementById('screen-quiz').classList.remove('hidden');
+  renderMegaQuestion();
+}
+
+function renderMegaQuestion() {
+  if (megaCurrent >= megaQ.length) {
+    showMegaResult();
+    return;
+  }
+  megaAnswered = false;
+  const q = megaQ[megaCurrent];
+  const pct = Math.round(megaCurrent / megaQ.length * 100);
+
+  document.getElementById('mega-progress-fill').style.width = pct + '%';
+  document.getElementById('mega-counter').textContent = `Въпрос ${megaCurrent + 1} от ${megaQ.length}`;
+  document.getElementById('mega-pct').textContent = pct + '%';
+  document.getElementById('mega-score-live').textContent = `⭐ ${megaScore} точки`;
+  document.getElementById('current-topic-label').textContent = `// ${q.topicName}`;
+
+  const letters = ['А', 'Б', 'В', 'Г'];
+  let optionsHTML = '';
+
+  if (q.type === 'mc') {
+    const opts = [...q.options].sort(() => Math.random() - 0.5);
+    opts.forEach((opt, i) => {
+      optionsHTML += `<button class="option-btn" data-value="${opt}" onclick="megaCheck(this,'${q.correct.replace(/'/g,"\\'")}')"><span class="opt-letter">${letters[i]}</span>${opt}</button>`;
+    });
+  } else if (q.type === 'tf') {
+    optionsHTML = `
+      <button class="option-btn" data-value="Вярно" onclick="megaCheck(this,'${q.correct}')"><span class="opt-letter">А</span>Вярно ✅</button>
+      <button class="option-btn" data-value="Грешно" onclick="megaCheck(this,'${q.correct}')"><span class="opt-letter">Б</span>Грешно ❌</button>`;
+  }
+
+  document.getElementById('mega-quiz-area').innerHTML = `
+    <div class="question-card">
+      <span class="question-type-label">${q.type === 'mc' ? '▣ МНОЖЕСТВЕН ИЗБОР' : '◎ ВЯРНО / ГРЕШНО'}</span>
+      <p class="question-text">${q.question}</p>
+      <div class="options-grid">${optionsHTML}</div>
+      <div class="quiz-feedback" id="mega-fb"></div>
+    </div>
+    <div class="quiz-nav" style="justify-content:flex-end;">
+      <button class="btn btn-outline btn-sm" id="mega-skip" onclick="megaSkip()">Пропусни →</button>
+      <button class="btn btn-primary" id="mega-next" onclick="megaNext()" style="display:none">Следващ →</button>
+    </div>`;
+}
+
+window.megaCheck = function(btn, correct) {
+  if (megaAnswered) return;
+  megaAnswered = true;
+  const allBtns = document.querySelectorAll('#mega-quiz-area .option-btn');
+  const fb = document.getElementById('mega-fb');
+  const q = megaQ[megaCurrent];
+
+  allBtns.forEach(b => {
+    b.disabled = true;
+    if (b.dataset.value === correct) b.classList.add('correct');
+  });
+
+  if (btn.dataset.value === correct) {
+    btn.classList.add('correct');
+    fb.className = 'quiz-feedback correct-fb';
+    fb.textContent = '✅ Браво! Верен отговор!';
+    megaScore++;
+    // Track topic score
+    if (!topicScores[q.topic]) topicScores[q.topic] = { name: q.topicName, correct: 0, total: 0 };
+    topicScores[q.topic].correct++;
+  } else {
+    btn.classList.add('wrong');
+    fb.className = 'quiz-feedback wrong-fb';
+    fb.textContent = `❌ Грешно. Верният отговор е: ${correct}`;
+  }
+
+  if (!topicScores[q.topic]) topicScores[q.topic] = { name: q.topicName, correct: 0, total: 0 };
+  topicScores[q.topic].total++;
+
+  document.getElementById('mega-skip').style.display = 'none';
+  document.getElementById('mega-next').style.display = 'inline-flex';
+  document.getElementById('mega-score-live').textContent = `⭐ ${megaScore} точки`;
+};
+
+window.megaSkip = function() {
+  const q = megaQ[megaCurrent];
+  if (!topicScores[q.topic]) topicScores[q.topic] = { name: q.topicName, correct: 0, total: 0 };
+  topicScores[q.topic].total++;
+  megaCurrent++;
+  renderMegaQuestion();
+};
+
+window.megaNext = function() {
+  megaCurrent++;
+  renderMegaQuestion();
+};
+
+function showMegaResult() {
+  document.getElementById('screen-quiz').classList.add('hidden');
+  document.getElementById('screen-result').classList.remove('hidden');
+
+  const total = megaQ.length;
+  const pct = Math.round(megaScore / total * 100);
+
+  let emoji = '😔', title = 'Продължавай напред!', msg = 'Прегледай теорията и опитай отново.';
+  if (pct >= 90) { emoji = '🏆'; title = 'Олимпийски резултат!'; msg = 'Изключително представяне! Готов/а си за НОИТ!'; }
+  else if (pct >= 75) { emoji = '🥇'; title = 'Отличен резултат!'; msg = 'Много добре! Само малко повече и ще си перфектен/на.'; }
+  else if (pct >= 60) { emoji = '🥈'; title = 'Добро представяне!'; msg = 'Добра работа! Прегледай по-слабите теми.'; }
+  else if (pct >= 40) { emoji = '👍'; title = 'Горе-долу!'; msg = 'Нужна е повече подготовка. Не се отказвай!'; }
+
+  document.getElementById('result-emoji').textContent = emoji;
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-score-text').textContent = `${megaScore}/${total}`;
+  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('result-pct').textContent = `${pct}% правилни отговора`;
+
+  // Animate ring
+  const ring = document.getElementById('result-ring');
+  ring.style.setProperty('--pct', `${pct * 3.6}deg`);
+
+  // Topic breakdown
+  const breakdown = document.getElementById('topic-breakdown');
+  const rows = Object.entries(topicScores).map(([topicId, data]) => {
+    const t = data.total || 1;
+    const p = Math.round(data.correct / t * 100);
+    return `
+      <div class="topic-progress-row">
+        <span class="topic-name">${data.name}</span>
+        <div class="mini-bar"><div class="mini-bar-fill" style="width:${p}%"></div></div>
+        <span class="topic-score">${data.correct}/${data.total} (${p}%)</span>
+      </div>`;
+  }).join('');
+  breakdown.innerHTML = rows || '<p style="color:var(--text-muted); font-size:0.85rem;">Няма данни.</p>';
+}
+</script>
+</body>
+</html>
