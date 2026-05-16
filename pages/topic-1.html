@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тема 1: Компютърна система | Ctrl+LearnBG</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<canvas id="particles-canvas"></canvas>
+<div class="page-wrapper">
+
+  <div class="breadcrumb">
+    <a href="../index.html">🏠 Начало</a>
+    <span class="sep">›</span>
+    <span>Тема 1: Компютърна система</span>
+  </div>
+
+  <div class="topic-hero">
+    <span class="topic-hero-icon">💻</span>
+    <span class="topic-hero-num">// ТЕМА 01</span>
+    <h1 class="topic-hero-title">Компютърна <span class="gradient-text">система</span></h1>
+    <p class="topic-hero-desc">Хардуер, софтуер, данни. Периферни устройства. Основни технически параметри на CPU, RAM, ROM, дискове и карти.</p>
+    <a href="#tabs-section" class="btn btn-primary">Започни да учиш ↓</a>
+  </div>
+
+  <div class="tabs-container" id="tabs-section">
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="theory">📖 Теория</button>
+      <button class="tab-btn" data-tab="video">🎬 Видео</button>
+      <button class="tab-btn" data-tab="tasks">✏️ Задачи</button>
+      <button class="tab-btn" data-tab="test">🧪 Тест</button>
+    </div>
+
+    <!-- ======== THEORY ======== -->
+    <div class="tab-panel active" id="tab-theory">
+      <div class="theory-content">
+
+        <div class="theory-block reveal">
+          <h2>🖥️ Какво е компютърна система?</h2>
+          <div class="definition">
+            <div class="def-term">КОМПЮТЪРНА СИСТЕМА (КС)</div>
+            <div class="def-body">Съвкупността от <strong>хардуера</strong> (апаратната част), <strong>софтуера</strong> (програмното осигуряване) и <strong>данните</strong> (информацията, съхранявана и използвана от софтуера).</div>
+          </div>
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-icon">🔧</div>
+              <div class="info-name">ХАРДУЕР</div>
+              <div class="info-desc">Всички физически компоненти на компютъра</div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">💾</div>
+              <div class="info-name">СОФТУЕР</div>
+              <div class="info-desc">Компютърни програми и указания за работа</div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📁</div>
+              <div class="info-name">ДАННИ</div>
+              <div class="info-desc">Информация, съхранена на различни устройства</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theory-block reveal">
+          <h2>🔌 Периферни устройства</h2>
+          <p>Периферните устройства осигуряват <strong>връзката между компютъра и потребителя</strong>. Разделяме ги на три вида:</p>
+
+          <h3>Входни устройства (въвеждат информация в компютъра)</h3>
+          <ul>
+            <li><strong>Клавиатура</strong> — въвежда текст, символи и контролира операции</li>
+            <li><strong>Мишка</strong> — посочва обекти на екрана и извършва действия с тях</li>
+            <li><strong>Скенер</strong> — въвежда графична информация от хартия</li>
+            <li><strong>Микрофон</strong> — въвежда звуков сигнал</li>
+            <li><strong>Уеб камера</strong> — въвежда видео изображение</li>
+          </ul>
+
+          <h3>Изходни устройства (извеждат информация от компютъра)</h3>
+          <ul>
+            <li><strong>Монитор</strong> — изобразява информацията визуално; размерът е в инчове (1 инч = 2.54 см); изображението се изгражда от пиксели</li>
+            <li><strong>Принтер</strong> — отпечатва на хартия; видове: матричен, мастиленоструен, лазерен</li>
+            <li><strong>Тонколони и слушалки</strong> — възпроизвеждат звуков сигнал</li>
+          </ul>
+
+          <h3>Входно-изходни устройства</h3>
+          <ul>
+            <li>Флашпамет, сензорен екран и др. (едновременно входни и изходни)</li>
+          </ul>
+        </div>
+
+        <div class="theory-block reveal">
+          <h2>⚡ Основни технически параметри</h2>
+
+          <h3>1. CPU — Централен процесор</h3>
+          <p>Чип на дънната платка — „мозъкът" на компютъра. Изпълнява аритметични и логически операции.</p>
+          <table class="data-table">
+            <tr><th>Параметър</th><th>Описание</th><th>Мерна единица</th></tr>
+            <tr><td>Тактова честота</td><td>Брой тактове за секунда</td><td>Hz, GHz</td></tr>
+            <tr><td>Разрядност</td><td>Брой битове, обработвани едновременно</td><td>32-bit / 64-bit</td></tr>
+            <tr><td>Кеш памет</td><td>Бърза временна памет за последно използвани данни</td><td>MB</td></tr>
+            <tr><td>Брой ядра</td><td>Колко ядра работят едновременно</td><td>2, 4, 8, 16...</td></tr>
+          </table>
+          <div class="highlight-box">💡 <strong>Hyper-threading</strong> — технология, при която едно физическо ядро работи като две логически ядра (нишки).</div>
+
+          <h3>2. RAM — Оперативна памет</h3>
+          <p><strong>Временна памет</strong> — изчиства се при изключване. Съхранява работещите програми и отворените файлове.</p>
+          <ul>
+            <li>Размер: измерва се в <strong>MB / GB</strong></li>
+            <li>Честота: измерва се в <strong>MHz</strong> (DDR4, DDR5 — над 2000 MHz)</li>
+          </ul>
+
+          <h3>3. ROM — Постоянна памет</h3>
+          <p><strong>Енергонезависима памет</strong> — запазва информацията при изключване. Съдържа <strong>BIOS</strong>.</p>
+          <ul>
+            <li><strong>CMOS памет</strong> — съхранява конфигурацията на компютъра; захранва се от батерия</li>
+          </ul>
+
+          <h3>4. Дънна платка (Motherboard)</h3>
+          <p>Електронна платка, на която се закрепват всички компоненти. Осигурява връзките чрез чипсет и шини.</p>
+
+          <h3>5. Диск — HDD и SSD</h3>
+          <table class="data-table">
+            <tr><th>Тип</th><th>Принцип</th><th>Предимство</th><th>Недостатък</th></tr>
+            <tr><td><strong>HDD</strong></td><td>Магнитен запис</td><td>По-евтин, голям обем</td><td>По-бавен, чуплив при удар</td></tr>
+            <tr><td><strong>SSD</strong></td><td>Флаш памет</td><td>По-бърз, надежден</td><td>По-скъп, ограничен брой записи</td></tr>
+          </table>
+
+          <h3>6. Звукова карта и Видеокарта</h3>
+          <ul>
+            <li><strong>Звукова карта</strong> — преобразува цифрови данни в аналогов звук (и обратно)</li>
+            <li><strong>Видеокарта (GPU)</strong> — обработва графични данни и ги подава към монитора</li>
+          </ul>
+
+          <h3>7. Мрежова карта</h3>
+          <p>Осъществява физическата връзка с интернет. Параметри: скорост (150–1300 Mbps), кабелна/безжична.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======== VIDEO ======== -->
+    <div class="tab-panel" id="tab-video">
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-thumb">
+            <iframe src="https://www.youtube.com/embed/ExxFxD4OSZ0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Компютърна система — хардуер и компоненти</div>
+            <div class="video-channel">📺 Обяснение за ученици</div>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb">
+            <div class="video-placeholder">
+              <div class="play-icon">▶</div>
+              <div>CPU: Как работи процесорът</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Как работи процесорът (CPU)?</div>
+            <div class="video-channel">📺 Видео урок</div>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb">
+            <div class="video-placeholder">
+              <div class="play-icon">▶</div>
+              <div>HDD vs SSD — Разлики</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">HDD vs SSD — Каква е разликата?</div>
+            <div class="video-channel">📺 Видео урок</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== TASKS ======== -->
+    <div class="tab-panel" id="tab-tasks">
+      <div class="tasks-grid">
+
+        <div class="task-card reveal">
+          <div class="task-header">
+            <div class="task-title">Задача 1: Класифицирай устройствата</div>
+            <span class="difficulty-badge easy">Лесна</span>
+          </div>
+          <div class="task-desc">Класифицирай следните устройства като <strong>входни</strong>, <strong>изходни</strong> или <strong>входно-изходни</strong>: клавиатура, монитор, скенер, принтер, флашпамет, микрофон, тонколони, сензорен екран, мишка, слушалки.</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer">
+            <strong>Входни:</strong> клавиатура, скенер, микрофон, мишка<br>
+            <strong>Изходни:</strong> монитор, принтер, тонколони, слушалки<br>
+            <strong>Входно-изходни:</strong> флашпамет, сензорен екран
+          </div>
+        </div>
+
+        <div class="task-card reveal">
+          <div class="task-header">
+            <div class="task-title">Задача 2: Параметри на CPU</div>
+            <span class="difficulty-badge easy">Лесна</span>
+          </div>
+          <div class="task-desc">Посочи 4 основни параметъра на централния процесор и в какви единици се измерват.</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer">
+            <strong>1. Тактова честота</strong> — Hz / GHz<br>
+            <strong>2. Разрядност</strong> — битове (32-bit / 64-bit)<br>
+            <strong>3. Кеш памет</strong> — MB<br>
+            <strong>4. Брой ядра</strong> — брой (dual-core, quad-core...)
+          </div>
+        </div>
+
+        <div class="task-card reveal">
+          <div class="task-header">
+            <div class="task-title">Задача 3: HDD vs SSD</div>
+            <span class="difficulty-badge medium">Средна</span>
+          </div>
+          <div class="task-desc">Направи сравнителна таблица между HDD и SSD по следните критерии: принцип на работа, скорост, издръжливост при удар, цена.</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer">
+            <strong>HDD:</strong> магнитен запис, по-бавен, чуплив при удар, по-евтин<br>
+            <strong>SSD:</strong> флаш памет, по-бърз, устойчив при удар (без движещи се части), по-скъп
+          </div>
+        </div>
+
+        <div class="task-card reveal">
+          <div class="task-header">
+            <div class="task-title">Задача 4: Компонентите на КС</div>
+            <span class="difficulty-badge medium">Средна</span>
+          </div>
+          <div class="task-desc">Обясни накратко какво е RAM и защо се казва "временна памет". Какво се случва с информацията в RAM при изключване на компютъра?</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer">
+            RAM (Random Access Memory) е <strong>оперативната памет</strong> на компютъра. Тя е временна, защото при изключване на захранването <strong>информацията в нея се изтрива</strong>. В нея се съхранява програмният код на всички стартирани програми и данните, с които работят в момента.
+          </div>
+        </div>
+
+        <div class="task-card reveal">
+          <div class="task-header">
+            <div class="task-title">Задача 5: Три компонента на КС</div>
+            <span class="difficulty-badge hard">Трудна</span>
+          </div>
+          <div class="task-desc">Дадена е следната ситуация: стартираш програмата Paint и отваряш снимка за редактиране. Кои от трите компонента на компютърната система (хардуер, софтуер, данни) участват и как?</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer">
+            <strong>Хардуер:</strong> процесорът обработва командите, RAM-ът зарежда програмата и снимката, дискът (HDD/SSD) съхранява файловете, мониторът визуализира резултата.<br>
+            <strong>Софтуер:</strong> програмата Paint е приложен софтуер; ОС управлява хардуера и стартира Paint.<br>
+            <strong>Данни:</strong> снимката (файл .jpg/.png) е данните, с които работи програмата.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======== TEST ======== -->
+    <div class="tab-panel" id="tab-test">
+      <div class="quiz-container">
+        <h2 style="font-family:var(--font-display); margin-bottom:1.5rem; font-size:1.3rem;">
+          🧪 Тест: Компютърна система
+        </h2>
+        <div id="quiz-topic1"></div>
+      </div>
+    </div>
+
+  </div><!-- /.tabs-container -->
+
+  <div style="text-align:center; padding:2rem; border-top:1px solid var(--border);">
+    <a href="topic-2.html" class="btn btn-primary">Следваща тема: Операционна система →</a>
+  </div>
+
+</div><!-- /.page-wrapper -->
+
+<script src="../js/main.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+const q1 = [
+  { type:'mc', question:'Какво представлява компютърната система?', options:['Само хардуерът на компютъра','Само софтуерът','Съвкупност от хардуер, софтуер и данни','Само периферните устройства'], correct:'Съвкупност от хардуер, софтуер и данни' },
+  { type:'mc', question:'Кое от следните е ВХОДНО устройство?', options:['Монитор','Принтер','Скенер','Тонколони'], correct:'Скенер' },
+  { type:'mc', question:'Коя памет се изчиства при изключване на компютъра?', options:['ROM','HDD','RAM','SSD'], correct:'RAM' },
+  { type:'tf', question:'CPU означава "Central Processing Unit" — Централен процесор.', correct:'Вярно' },
+  { type:'mc', question:'В какви единици се измерва тактовата честота на процесора?', options:['Байтове','Hz (херцове)','Ватове','Волтове'], correct:'Hz (херцове)' },
+  { type:'mc', question:'Кое устройство е ИЗХОДНО?', options:['Клавиатура','Мишка','Монитор','Микрофон'], correct:'Монитор' },
+  { type:'mc', question:'Какво съхранява BIOS?', options:['Потребителски файлове','Програми за първоначално стартиране на компютъра','Снимки','Видео файлове'], correct:'Програми за първоначално стартиране на компютъра' },
+  { type:'tf', question:'SSD дискът работи на магнитен принцип.', correct:'Грешно' },
+  { type:'mc', question:'Колко бита се обработват едновременно при 64-битов процесор?', options:['32','16','64','128'], correct:'64' },
+  { type:'mc', question:'Кое устройство е ВХОДНО-ИЗХОДНО?', options:['Монитор','Флашпамет','Клавиатура','Принтер'], correct:'Флашпамет' },
+  { type:'text', question:'Как се казва технологията, при която едно физическо ядро работи като две логически ядра?', correct:'hyper-threading|хипертрединг|hyper threading' },
+  { type:'mc', question:'Размерът на монитора се измерва в:', options:['Сантиметри','Инчове','Пиксели','Мегапиксели'], correct:'Инчове' },
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const qs = [...q1].sort(() => Math.random() - 0.5).slice(0, 10);
+  let total = qs.length;
+
+  initQuiz(qs, 'quiz-topic1');
+
+  // Override result renderer
+  const origState = window['quizState_quiz-topic1'];
+  if (origState) {
+    const origRender = origState.render;
+    origState.render = function() {
+      if (origState.current() >= total) {
+        renderQuizResult(document.getElementById('quiz-topic1'), origState.score(), total);
+      } else {
+        origRender();
+      }
+    };
+  }
+});
+</script>
+</body>
+</html>

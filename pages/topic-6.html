@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тема 6: Алгоритми | Ctrl+LearnBG</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<canvas id="particles-canvas"></canvas>
+<div class="page-wrapper">
+  <div class="breadcrumb"><a href="../index.html">🏠 Начало</a><span class="sep">›</span><span>Тема 6: Алгоритми</span></div>
+  <div class="topic-hero">
+    <span class="topic-hero-icon">⚙️</span>
+    <span class="topic-hero-num">// ТЕМА 06</span>
+    <h1 class="topic-hero-title">Алгоритми и <span class="gradient-text">програмиране</span></h1>
+    <p class="topic-hero-desc">Основни типове данни, циклични конструкции, скриптови езици, модули и библиотеки.</p>
+    <a href="#tabs-section" class="btn btn-primary">Започни да учиш ↓</a>
+  </div>
+  <div class="tabs-container" id="tabs-section">
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="theory">📖 Теория</button>
+      <button class="tab-btn" data-tab="video">🎬 Видео</button>
+      <button class="tab-btn" data-tab="tasks">✏️ Задачи</button>
+      <button class="tab-btn" data-tab="test">🧪 Тест</button>
+    </div>
+    <div class="tab-panel active" id="tab-theory">
+      <div class="theory-content">
+        <div class="theory-block reveal">
+          <h2>🔢 Какво е алгоритъм?</h2>
+          <div class="definition"><div class="def-term">АЛГОРИТЪМ</div><div class="def-body">Точна последователност от стъпки за решаване на даден проблем. Характеристики: <strong>крайност, определеност, изпълнимост, резултатност</strong>.</div></div>
+          <h3>Видове алгоритмични структури</h3>
+          <ul>
+            <li><strong>Линейна</strong> — стъпките се изпълняват последователно</li>
+            <li><strong>Разклонена (условна)</strong> — избор между два пътя (if/else)</li>
+            <li><strong>Циклична</strong> — повтаряне на стъпки (for, while)</li>
+          </ul>
+        </div>
+        <div class="theory-block reveal">
+          <h2>📊 Основни типове данни</h2>
+          <table class="data-table">
+            <tr><th>Тип</th><th>Описание</th><th>Пример (Python)</th></tr>
+            <tr><td><strong>int</strong></td><td>Цяло число</td><td>x = 5</td></tr>
+            <tr><td><strong>float</strong></td><td>Дробно число</td><td>pi = 3.14</td></tr>
+            <tr><td><strong>str</strong></td><td>Текст (стринг)</td><td>ime = "Иван"</td></tr>
+            <tr><td><strong>bool</strong></td><td>Булев (True/False)</td><td>ok = True</td></tr>
+            <tr><td><strong>list</strong></td><td>Списък от елементи</td><td>nums = [1, 2, 3]</td></tr>
+          </table>
+        </div>
+        <div class="theory-block reveal">
+          <h2>🔄 Циклични конструкции</h2>
+          <h3>For цикъл — за известен брой повторения</h3>
+          <pre>for i in range(5):
+    print(i)  # Отпечатва 0,1,2,3,4</pre>
+          <h3>While цикъл — докато условието е вярно</h3>
+          <pre>x = 0
+while x < 5:
+    print(x)
+    x = x + 1</pre>
+          <div class="highlight-box">💡 <strong>range(n)</strong> генерира числа от 0 до n-1. <strong>range(a, b)</strong> — от a до b-1.</div>
+        </div>
+        <div class="theory-block reveal">
+          <h2>📦 Модули и библиотеки в Python</h2>
+          <p>Готови колекции от функции, които можем да използваме с <strong>import</strong>.</p>
+          <pre>import math
+print(math.sqrt(16))  # 4.0
+print(math.pi)         # 3.14159...</pre>
+          <ul>
+            <li><strong>math</strong> — математически функции (sqrt, sin, cos, pi)</li>
+            <li><strong>random</strong> — случайни числа</li>
+            <li><strong>turtle</strong> — рисуване с костенурка</li>
+            <li><strong>time</strong> — работа с дата и час</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-video">
+      <div class="video-grid">
+        <div class="video-card"><div class="video-thumb"><div class="video-placeholder"><div class="play-icon">▶</div><div>Python for начинаещи</div></div></div><div class="video-info"><div class="video-title">Python за начинаещи — основи</div><div class="video-channel">📺 Видео урок</div></div></div>
+        <div class="video-card"><div class="video-thumb"><div class="video-placeholder"><div class="play-icon">▶</div><div>Цикли в Python</div></div></div><div class="video-info"><div class="video-title">Цикли for и while в Python</div><div class="video-channel">📺 Видео урок</div></div></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-tasks">
+      <div class="tasks-grid">
+        <div class="task-card reveal">
+          <div class="task-header"><div class="task-title">Задача 1: Типове данни</div><span class="difficulty-badge easy">Лесна</span></div>
+          <div class="task-desc">Определи типа данни: <br>а) 42 &nbsp; б) "Здравей" &nbsp; в) 3.14 &nbsp; г) True &nbsp; д) [1, 2, 3]</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer">а) <strong>int</strong> &nbsp; б) <strong>str</strong> &nbsp; в) <strong>float</strong> &nbsp; г) <strong>bool</strong> &nbsp; д) <strong>list</strong></div>
+        </div>
+        <div class="task-card reveal">
+          <div class="task-header"><div class="task-title">Задача 2: Прочети кода</div><span class="difficulty-badge medium">Средна</span></div>
+          <div class="task-desc">Какво ще отпечата следният код?<br><code>for i in range(1, 6):<br>&nbsp;&nbsp;&nbsp;print(i * 2)</code></div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer">Ще отпечата: <strong>2, 4, 6, 8, 10</strong> (всяко на нов ред). range(1,6) = 1,2,3,4,5 и умножаваме по 2.</div>
+        </div>
+        <div class="task-card reveal">
+          <div class="task-header"><div class="task-title">Задача 3: Напиши алгоритъм</div><span class="difficulty-badge hard">Трудна</span></div>
+          <div class="task-desc">Напиши Python код, който отпечатва числата от 1 до 100, но за кратните на 3 отпечатва "Fizz", а за кратните на 5 — "Buzz".</div>
+          <button class="task-answer-toggle">💡 Покажи отговора</button>
+          <div class="task-answer"><pre>for i in range(1, 101):
+    if i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)</pre></div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-test">
+      <div class="quiz-container">
+        <h2 style="font-family:var(--font-display); margin-bottom:1.5rem; font-size:1.3rem;">🧪 Тест: Алгоритми</h2>
+        <div id="quiz-topic6"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center; padding:2rem; border-top:1px solid var(--border); display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a href="topic-5.html" class="btn btn-outline">← Тема 5</a>
+    <a href="topic-7.html" class="btn btn-primary">Тема 7: MS Word →</a>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+const q6 = [
+  { type:'mc', question:'Какъв тип данни е стойността 3.14?', options:['int','str','float','bool'], correct:'float' },
+  { type:'mc', question:'range(3) генерира числата:', options:['1,2,3','0,1,2,3','0,1,2','1,2'], correct:'0,1,2' },
+  { type:'tf', question:'While цикълът се изпълнява докато условието е вярно (True).', correct:'Вярно' },
+  { type:'mc', question:'Кое е вярно за алгоритъма?', options:['Може да е безкраен','Трябва да е краен','Не трябва да дава резултат','Нито едно'], correct:'Трябва да е краен' },
+  { type:'mc', question:'Командата за включване на модул в Python е:', options:['include','require','import','use'], correct:'import' },
+  { type:'mc', question:'Какъв тип данни е "Здравей"?', options:['int','bool','float','str'], correct:'str' },
+  { type:'tf', question:'For цикълът е подходящ, когато броят на повторенията е известен.', correct:'Вярно' },
+  { type:'mc', question:'Коя функция пресмята квадратен корен в модула math?', options:['math.root()','math.sq()','math.sqrt()','math.power()'], correct:'math.sqrt()' },
+];
+document.addEventListener('DOMContentLoaded', () => {
+  const qs = [...q6].sort(() => Math.random() - 0.5);
+  initQuiz(qs, 'quiz-topic6');
+  const st = window['quizState_quiz-topic6'];
+  if (st) { const r = st.render; st.render = function() { if(st.current()>=qs.length) renderQuizResult(document.getElementById('quiz-topic6'),st.score(),qs.length); else r(); }; }
+});
+</script>
+</body>
+</html>
